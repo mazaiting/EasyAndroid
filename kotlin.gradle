@@ -1,0 +1,10 @@
+// kotlin 依赖
+dependencies {
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    // 兼容库
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    // kotlin 核心库
+    implementation "androidx.core:core-ktx:$core_ktx"
+    // 约束布局
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
+}
