@@ -20,6 +20,8 @@ buildscript {
         okhttp_version = "4.2.1"
         // retrofit2 版本
         retrofit_version = "2.6.2"
+        // material 版本
+        material_version = "1.0.0"
     }
     repositories {
         // google()

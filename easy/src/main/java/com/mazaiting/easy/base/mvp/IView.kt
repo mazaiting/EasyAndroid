@@ -1,4 +1,4 @@
-package com.mazaiting.easy.base.interfaces
+package com.mazaiting.easy.base.mvp
 
 import android.os.Bundle
 import android.view.LayoutInflater

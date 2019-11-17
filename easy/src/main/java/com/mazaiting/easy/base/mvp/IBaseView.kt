@@ -7,10 +7,6 @@ package com.mazaiting.easy.base.mvp
  */
 
 interface IBaseView {
-    /**
-     * 显示正在加载中...
-     */
-    fun onShowLoading()
 
     /**
      * 请求成功
@@ -22,9 +18,4 @@ interface IBaseView {
      * @param message 错误信息
      */
     fun onShowFailed(message: String)
-
-    /**
-     * 显示当前网络不可用
-     */
-    fun onShowNoNet()
 }

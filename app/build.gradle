@@ -25,15 +25,11 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     // UI 库
     implementation project(':widget')
-    // RecyclerView 适配器工具
-    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34'
-    //    // Activity与Fragment通信
-//    api 'org.greenrobot:eventbus:3.1.1'
-//    // Dagger
-//    api 'com.google.dagger:dagger:2.14'
+    // Dagger 依赖注入
+    implementation 'com.google.dagger:dagger:2.25.2'
 }
 apply from: "./../kotlin.gradle"

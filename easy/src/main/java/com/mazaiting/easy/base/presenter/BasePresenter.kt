@@ -10,17 +10,17 @@ import com.mazaiting.easy.base.mvp.IBaseView
  * @date 2018/2/5
  */
 
-open class BasePresenter : IBasePresenter {
+open class BasePresenter<T : IBaseView> : IBasePresenter<T> {
 
     /**
      * 基类视图
      */
-    private var mView: IBaseView? = null
+    private var mView: T? = null
 
     /**
      * 与视图绑定
      */
-    override fun attachView(view: IBaseView) {
+    override fun attachView(view: T) {
         this.mView = view
     }
 

@@ -15,4 +15,6 @@ object Constant {
     const val SUFFIX_JPEG = ".jpg"
     /** 图片后缀名_png  */
     const val SUFFIX_PNG = ".png"
+    /** 对话框标识 */
+    const val DIALOG_LOADING = "dialog_loading"
 }

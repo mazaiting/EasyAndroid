@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
 import com.mazaiting.easy.app.BaseApplication
-import com.mazaiting.easy.base.interfaces.IView
+import com.mazaiting.easy.base.mvp.IView
 import com.mazaiting.easy.base.mvp.IBaseView
 import com.mazaiting.easy.base.presenter.BasePresenter
 import javax.inject.Inject
@@ -15,7 +15,8 @@ import javax.inject.Inject
  * @date 2018/2/5
  */
 
-abstract class BaseActivity<T : BasePresenter> : AppCompatActivity(), IBaseView, IView {
+abstract class BaseActivity<T : BasePresenter> : AppCompatActivity(), IBaseView,
+    IView {
     /**主持人 */
     @Nullable
     @Inject
@@ -31,10 +32,8 @@ abstract class BaseActivity<T : BasePresenter> : AppCompatActivity(), IBaseView,
         inject(BaseApplication.instance.applicationComponent)
         // 绑定布局--与Presenter
         attachView()
-        rootView?.let {
-            // 绑定布局
-            bindView(rootView!!, savedInstanceState)
-        }
+        // 绑定布局
+        rootView?.let { bindView(it, savedInstanceState) }
         // 初始化数据
         initData()
     }

@@ -1,3 +1,4 @@
+// 各支持库最新版本
 // kotlin 依赖
 dependencies {
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"

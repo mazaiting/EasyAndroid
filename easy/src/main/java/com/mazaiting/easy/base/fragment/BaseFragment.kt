@@ -9,7 +9,7 @@ import androidx.annotation.Nullable
 import androidx.fragment.app.Fragment
 
 import com.mazaiting.easy.app.BaseApplication
-import com.mazaiting.easy.base.interfaces.IView
+import com.mazaiting.easy.base.mvp.IView
 import com.mazaiting.easy.base.mvp.IBaseView
 import com.mazaiting.easy.base.presenter.BasePresenter
 import javax.inject.Inject
@@ -74,17 +74,11 @@ abstract class BaseFragment<T : BasePresenter> : Fragment(), IView, IBaseView {
      * 绑定布局
      */
     private fun attachView() {
-        if (null != mPresenter) {
-            mPresenter!!.attachView(this)
-        }
+        mPresenter?.attachView(this)
     }
 
     override fun onDestroy() {
+        mPresenter?.detachView()
         super.onDestroy()
-        // 判断是否为空
-        if (null != mPresenter) {
-            // 不为空，则使Presenter与View解除绑定
-            mPresenter!!.detachView()
-        }
     }
 }

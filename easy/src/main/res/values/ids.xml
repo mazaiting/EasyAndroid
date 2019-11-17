@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="simpleMultiStateView" type="id" />
+    <item name="toolbar" type="id" />
+    <item name="swipeLayout" type="id" />
+    <item name="recyclerView" type="id" />
 </resources>
