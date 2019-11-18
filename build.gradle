@@ -2,12 +2,14 @@
 
 buildscript {
     ext{
+        // kotlin 版本
         kotlin_version = '1.3.60'
+        // 编译 SDK
         compileSdkVersion = 28
+        // 最小 SDK
         minSdkVersion = 19
+        // 目标 SDK
         targetSdkVersion = 28
-        // 更换为对应的版本
-//        supportVersion = "28.0.0"
         // ROOM 版本
         room_version = "2.2.1"
         // kotlin 核心版本

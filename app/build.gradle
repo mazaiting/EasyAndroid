@@ -1,8 +1,25 @@
+import java.text.SimpleDateFormat
+
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
+
+
+// 加载签名配置文件
+Properties props = new Properties()
+props.load(new FileInputStream(file("signing.properties")))
+
+// app 名称
+static String appName() {
+    return "Jeecg"
+}
+// 生产时间
+static String releaseTime() {
+    SimpleDateFormat format = new SimpleDateFormat("dd_HH_mm", Locale.CHINA)
+    return format.format(new Date())
+}
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -14,11 +31,38 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    // 签名配置
+    signingConfigs {
+        release {
+            keyAlias props['KEY_ALIAS']
+            keyPassword props['KEY_PASSWORD']
+            storeFile file(props['KEYSTORE_FILE'])
+            storePassword props['KEYSTORE_PASSWORD']
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    applicationVariants.all {
+        variant ->
+            //这个修改输出的APK路径
+            if (variant.buildType.name != "debug") {//防止AS无法安装debug包(apk)
+                variant.getPackageApplication().outputDirectory = new File(project.rootDir.absolutePath + "/apk")
+            }
+
+            variant.getPackageApplication().outputScope.apkDatas.forEach {
+                apkData ->
+                    //这个修改输出APK的文件名
+                    apkData.outputFileName =
+                            "${appName()}" + "_" + "${releaseTime()}" + "_" +
+                                    variant.versionName.replace(".", "_") + ".apk"
+            }
     }
 }
 

@@ -1,7 +1,11 @@
+import java.text.SimpleDateFormat
+
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+
+
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -13,13 +17,25 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [
+                        "room.schemaLocation"  : "$projectDir/schemas".toString(),
+                        "room.incremental"     : "true",
+                        "room.expandProjection": "true"]
+            }
+        }
     }
+
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
@@ -76,5 +92,13 @@ dependencies {
     implementation "com.google.dagger:dagger:$dagger_version"
     // dagger 注解
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    // 数据库工具: https://developer.android.google.cn/training/data-storage/room
+    implementation "androidx.room:room-runtime:$room_version"
+    // For Kotlin use kapt instead of annotationProcessor
+    kapt "androidx.room:room-compiler:$room_version"
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$room_version"
+    // optional - RxJava support for Room
+    implementation "androidx.room:room-rxjava2:$room_version"
 }
 apply from: "./../kotlin.gradle"
