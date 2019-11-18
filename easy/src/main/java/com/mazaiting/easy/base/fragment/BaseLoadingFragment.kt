@@ -3,6 +3,7 @@ package com.mazaiting.easy.base.fragment
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.LoadingDialogFragment
+import com.mazaiting.easy.base.mvp.IBaseView
 import com.mazaiting.easy.base.mvp.ILoading
 import com.mazaiting.easy.base.presenter.BasePresenter
 import com.mazaiting.easy.config.Constant
@@ -11,7 +12,7 @@ import com.mazaiting.easy.config.Constant
  * 带有加载进度条的Fragment基类
  */
 
-abstract class BaseLoadingFragment<T : BasePresenter> : BaseLazyFragment<T>(), ILoading {
+abstract class BaseLoadingFragment<T : BasePresenter<IBaseView>> : BaseLazyFragment<T>(), ILoading {
     /**加载进度条 */
     private var mLoadingDialogFragment: LoadingDialogFragment? = null
 

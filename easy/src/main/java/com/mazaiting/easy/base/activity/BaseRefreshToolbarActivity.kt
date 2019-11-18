@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
+import com.mazaiting.easy.base.mvp.IBaseView
 import com.mazaiting.easy.base.presenter.BasePresenter
 import kotlinx.android.synthetic.main.refresh.*
 
@@ -17,7 +18,7 @@ import kotlinx.android.synthetic.main.refresh.*
  * @date 2018/3/23
  */
 
-abstract class BaseRefreshToolbarActivity<T : BasePresenter> : BaseToolbarActivity<T>() {
+abstract class BaseRefreshToolbarActivity<T : BasePresenter<IBaseView>> : BaseToolbarActivity<T>() {
     /**适配器 */
     protected lateinit var mAdapter: BaseQuickAdapter<Any, BaseViewHolder>
 

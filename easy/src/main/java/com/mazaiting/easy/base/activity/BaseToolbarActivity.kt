@@ -3,6 +3,7 @@ package com.mazaiting.easy.base.activity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import com.mazaiting.easy.base.mvp.IBaseView
 
 import com.mazaiting.easy.base.presenter.BasePresenter
 import kotlinx.android.synthetic.main.toolbar.*
@@ -14,7 +15,7 @@ import kotlinx.android.synthetic.main.toolbar.*
  * @date 2018/3/23
  */
 
-abstract class BaseToolbarActivity<T : BasePresenter> : BaseLoadingActivity<T>() {
+abstract class BaseToolbarActivity<T : BasePresenter<IBaseView>> : BaseLoadingActivity<T>() {
 
     /**
      * 如果重写此方法，在方法体内先调用父类的bindView方法

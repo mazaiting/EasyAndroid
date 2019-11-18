@@ -22,6 +22,8 @@ buildscript {
         retrofit_version = "2.6.2"
         // material 版本
         material_version = "1.0.0"
+        // dagger 版本
+        dagger_version = "2.25.2"
     }
     repositories {
         // google()

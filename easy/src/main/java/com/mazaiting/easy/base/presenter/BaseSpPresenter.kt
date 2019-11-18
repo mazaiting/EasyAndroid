@@ -1,8 +1,11 @@
 package com.mazaiting.easy.base.presenter
 
+import android.content.Context
 import android.content.SharedPreferences
+import com.mazaiting.easy.app.BaseApplication
 
 import com.mazaiting.easy.base.mvp.IBaseView
+import com.mazaiting.sp.SpUtil
 
 import javax.inject.Inject
 
@@ -11,34 +14,23 @@ import javax.inject.Inject
  * 带SharedPreferences的Presenter
  * @author mazaiting
  */
-class BaseSpPresenter<T : IBaseView> : BasePresenter<T>() {
-    @Inject
-    private val mSharedPreferences: SharedPreferences? = null
+open class BaseSpPresenter<T : IBaseView> : BasePresenter<T>() {
     /**
-     * 存入Boolean值
-     * @param key 键
-     * @param value 值
+     * 注入 SharedPreferences 工具类
      */
-    protected fun putBoolean(key: String, value: Boolean) {
-        mSharedPreferences!!.edit().putBoolean(key, value).apply()
-    }
+    @Inject lateinit var sp: SpUtil
+    /**
+     * 注入上下文
+     */
+    @Inject lateinit var context: Context
 
     /**
-     * 存入String值
+     * 保存
      * @param key 键
      * @param value 值
      */
-    protected fun putString(key: String, value: String) {
-        mSharedPreferences!!.edit().putString(key, value).apply()
-    }
-
-    /**
-     * 存入int值
-     * @param key 键
-     * @param value 值
-     */
-    protected fun putInt(key: String, value: Int) {
-        mSharedPreferences!!.edit().putInt(key, value).apply()
+    protected fun put(key: String, value: Boolean) {
+        sp.put(context, key, value)
     }
 
     /**
@@ -46,25 +38,19 @@ class BaseSpPresenter<T : IBaseView> : BasePresenter<T>() {
      * @param key 键
      * @return Boolean数据
      */
-    protected fun getBoolean(key: String): Boolean {
-        return mSharedPreferences!!.getBoolean(key, false)
-    }
+    protected fun getBoolean(key: String): Boolean = sp.getBoolean(context, key)
 
     /**
      * 获取对应键的值
      * @param key 键
-     * @return Boolean数据
+     * @return 字符串数据
      */
-    protected fun getString(key: String): String? {
-        return mSharedPreferences!!.getString(key, "")
-    }
+    protected fun getString(key: String): String? = sp.getString(context, key)
 
     /**
      * 获取对应键的值
      * @param key 键
      * @return int数据
      */
-    protected fun getInt(key: String): Int {
-        return mSharedPreferences!!.getInt(key, 0)
-    }
+    protected fun getInt(key: String): Int = sp.getInt(context, key)
 }

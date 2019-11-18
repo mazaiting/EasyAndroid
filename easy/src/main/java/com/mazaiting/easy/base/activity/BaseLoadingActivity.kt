@@ -4,6 +4,7 @@ import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.LoadingDialogFragment
+import com.mazaiting.easy.base.mvp.IBaseView
 import com.mazaiting.easy.base.mvp.ILoading
 import com.mazaiting.easy.base.presenter.BasePresenter
 import com.mazaiting.easy.config.Constant
@@ -13,7 +14,7 @@ import com.mazaiting.easy.config.Constant
  * @author mazaiting
  */
 
-abstract class BaseLoadingActivity<T : BasePresenter> : BaseActivity<T>(), ILoading {
+abstract class BaseLoadingActivity<T : BasePresenter<IBaseView>> : BaseActivity<T>(), ILoading {
 
     /**加载进度条 */
     private var mLoadingDialogFragment: LoadingDialogFragment? = null

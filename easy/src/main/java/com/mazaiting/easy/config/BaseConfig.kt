@@ -1,9 +1,8 @@
 package com.mazaiting.easy.config
 
 import android.app.Application
-import com.mazaiting.crash.CrashHandler
 import com.mazaiting.log.L
-import com.mazaiting.util.CrashLogUtil
+import com.mazaiting.report.LocalReportHandler
 
 /**
  * 配置文件基类
@@ -36,15 +35,22 @@ abstract class BaseConfig {
      * 是否处于调试阶段
      * @return true, 调试；false, 发布版
      */
-    protected val isDebug: Boolean
+    protected open val isDebug: Boolean
         get() = false
 
     /**
      * 是否开启日志
      * @return true, 开启；false, 不开启
      */
-    protected val isUseLogger: Boolean
+    protected open val isUseLogger: Boolean
         get() = false
+
+    /**
+     * 获取基类 url
+     * @return 网络基地址, 必须以'/'结尾
+     */
+    val baseUrl: String
+        get() = "/"
 
     /**
      * 初始化调试参数
@@ -52,18 +58,19 @@ abstract class BaseConfig {
      */
     fun init(application: Application) {
         // 初始化日志打印
-        initLogger()
+        initLogger(application)
         // 异常捕获
-        CrashHandler.getInstance()
+        LocalReportHandler(application)
     }
 
     /**
      * 初始化日志打印
+     * @param application 全局Application
      */
-    private fun initLogger() {
+    private fun initLogger(application: Application) {
         if (isUseLogger && isDebug) {
-            //            Logger.addLogAdapter(new AndroidLogAdapter());
-            L.setProp(isDebug, Constant.TAG)
+            // 设置 Tag
+            L.setProp(isDebug, application.javaClass.simpleName)
         }
     }
 

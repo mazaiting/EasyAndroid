@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
+import com.mazaiting.easy.base.mvp.IBaseView
 import com.mazaiting.easy.base.presenter.BasePresenter
 import kotlinx.android.synthetic.main.refresh.*
 
@@ -14,7 +15,7 @@ import kotlinx.android.synthetic.main.refresh.*
  * 刷新界面Fragment
  * Created by mazaiting on 2018/4/25.
  */
-abstract class BaseRefreshFragment<T : BasePresenter> : BaseLoadingFragment<T>() {
+abstract class BaseRefreshFragment<T : BasePresenter<IBaseView>> : BaseLoadingFragment<T>() {
     /**适配器 */
     protected var mAdapter: BaseQuickAdapter<Any, BaseViewHolder>? = null
     /**

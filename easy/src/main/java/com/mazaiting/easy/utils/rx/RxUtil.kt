@@ -24,12 +24,10 @@ object RxUtil {
      * 获取日志拦截器
      * @return Http日志拦截器
      */
-    private// 日志显示级别
-    // 新建拦截器
-    // 设置显示级别
-    val httpLoggingInterceptor: HttpLoggingInterceptor
+    private val httpLoggingInterceptor: HttpLoggingInterceptor
         get() {
             val level = HttpLoggingInterceptor.Level.BODY
+            // 创建拦截器
             val loggingInterceptor =
                 HttpLoggingInterceptor(object : HttpLoggingInterceptor.Logger {
                     override fun log(@NonNull message: String) {
@@ -38,7 +36,8 @@ object RxUtil {
                         }
                     }
                 })
-            loggingInterceptor.setLevel(level)
+            // 设置日志等级
+            loggingInterceptor.level = level
             return loggingInterceptor
         }
 

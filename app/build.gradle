@@ -27,9 +27,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    // Easy 框架库
+    implementation project(':easy')
     // UI 库
     implementation project(':widget')
-    // Dagger 依赖注入
-    implementation 'com.google.dagger:dagger:2.25.2'
 }
 apply from: "./../kotlin.gradle"

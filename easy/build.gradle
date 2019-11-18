@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -63,12 +64,17 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     // 异常崩溃捕获
     implementation 'com.mazaiting:crash:1.0.5'
-    // 日志打印
-    implementation 'com.mazaiting:log:1.0.0'
+    // UI 库
     implementation project(path: ':widget')
     // material 库
     implementation "com.google.android.material:material:$material_version"
     // RecyclerView 适配器工具
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34'
+    // SharedPreferences 库
+    implementation 'com.mazaiting:sp:1.0.0'
+    // Dagger 依赖注入
+    implementation "com.google.dagger:dagger:$dagger_version"
+    // dagger 注解
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
 }
 apply from: "./../kotlin.gradle"

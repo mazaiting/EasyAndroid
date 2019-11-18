@@ -7,9 +7,11 @@ package com.mazaiting.easy.config
  */
 
 object Constant {
-    /**Library标记 */
+    /** Library标记 */
     const val TAG = "EasyAndroid"
-    /**POST上传文件时类型 */
+    /** SharedPreferences 文件名 */
+    const val SP_FILE = "sp_file"
+    /** POST上传文件时类型 */
     const val MULTIPART_FORM_DATA = "multipart/form-data"
     /** 图片后缀名_jpeg  */
     const val SUFFIX_JPEG = ".jpg"

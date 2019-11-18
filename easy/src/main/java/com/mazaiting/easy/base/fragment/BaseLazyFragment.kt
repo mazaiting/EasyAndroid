@@ -3,6 +3,7 @@ package com.mazaiting.easy.base.fragment
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.Nullable
+import com.mazaiting.easy.base.mvp.IBaseView
 
 import com.mazaiting.easy.base.presenter.BasePresenter
 
@@ -11,7 +12,7 @@ import com.mazaiting.easy.base.presenter.BasePresenter
  * @author mazaiting
  * @date 2018/2/5
  */
-abstract class BaseLazyFragment<T : BasePresenter> : BaseFragment<T>() {
+abstract class BaseLazyFragment<T : BasePresenter<IBaseView>> : BaseFragment<T>() {
     /**标记视图是否已经准备好 */
     private var isViewPrepared: Boolean = false
 

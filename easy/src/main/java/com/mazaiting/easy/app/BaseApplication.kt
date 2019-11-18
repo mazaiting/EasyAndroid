@@ -1,6 +1,9 @@
 package com.mazaiting.easy.app
 
 import android.app.Application
+import com.mazaiting.easy.base.component.DaggerApplicationComponentImpl
+import com.mazaiting.easy.base.module.ApplicationModule
+import com.mazaiting.easy.base.module.NetModule
 
 import com.mazaiting.easy.config.BaseConfig
 
@@ -13,8 +16,20 @@ import com.mazaiting.easy.config.BaseConfig
  * @date 2018/2/5
  */
 abstract class BaseApplication : Application() {
-    /**配置文件对象 */
-    private var sConfig: BaseConfig? = null
+    companion object {
+        /**
+         * 获取当前类对象
+         */
+        lateinit var instance: BaseApplication
+            private set
+    }
+
+    /** 配置文件对象 */
+    open val config: BaseConfig?
+        get() = null
+    /** 是否使用 Dagger 工具 */
+    protected open val isDagger: Boolean
+        get() = true
     /**全局应用组件 */
     private var mApplicationComponent: IApplicationComponent? = null
 
@@ -33,11 +48,11 @@ abstract class BaseApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         // 初始化App
-        instance = initApp()
+        instance = this
         // 设置ApplicationComponent
         initApplicationComponent()
         // 初始化配置文件
-        initConfig()
+        config?.init(this)
         // 初始化其他配置
         initOtherConfig()
     }
@@ -45,44 +60,19 @@ abstract class BaseApplication : Application() {
     /**
      * 设置ApplicationComponent
      */
-    private fun initApplicationComponent() {}
-
-    /**
-     * 初始化App
-     * @return 返回当前类对象
-     */
-    protected abstract fun initApp(): BaseApplication
-
-    /**
-     * 初始化配置文件
-     */
-    private fun initConfig() {
-        sConfig = setConfig()
-        if (null != sConfig) {
-            // 初始化各类工具
-            sConfig!!.init(this)
+    private fun initApplicationComponent() {
+        if (isDagger) {
+            DaggerApplicationComponentImpl
+                .builder()
+                .applicationModule(ApplicationModule(this))
+                .netModule(NetModule())
+                .build()
         }
     }
 
     /**
      * 初始化其他配置，如果有需要则重写
      */
-    protected fun initOtherConfig() {}
+    protected open fun initOtherConfig() {}
 
-    /**
-     * 设置配置文件
-     * @return BaseConfig子类对象
-     */
-    protected fun setConfig(): BaseConfig? {
-        return null
-    }
-
-    companion object {
-        /**当前类对象 */
-        /**
-         * 获取当前类对象
-         */
-        lateinit var instance: BaseApplication
-            protected set
-    }
 }

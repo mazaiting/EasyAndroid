@@ -1,6 +1,5 @@
 package com.mazaiting.easy.base.fragment
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,13 +19,9 @@ import javax.inject.Inject
  * @date 2018/2/5
  */
 
-abstract class BaseFragment<T : BasePresenter> : Fragment(), IView, IBaseView {
-    /**上下文 */
-    protected lateinit var mContext: Context
+abstract class BaseFragment<T : BasePresenter<IBaseView>> : Fragment(), IView, IBaseView {
     /**主持人 */
-    @Nullable
-    @Inject
-    protected var mPresenter: T? = null
+    @Nullable @Inject lateinit var presenter: T
     /**判断是否加载过数据 */
     protected var hasFetchData = false
 
@@ -48,8 +43,6 @@ abstract class BaseFragment<T : BasePresenter> : Fragment(), IView, IBaseView {
             // 为空时创建View
             rootView = inflater.inflate(contentLayout, container, false)
         }
-        // 设置上下文
-        mContext = rootView!!.context
         return rootView as View
     }
 
@@ -74,11 +67,11 @@ abstract class BaseFragment<T : BasePresenter> : Fragment(), IView, IBaseView {
      * 绑定布局
      */
     private fun attachView() {
-        mPresenter?.attachView(this)
+        presenter?.attachView(this)
     }
 
     override fun onDestroy() {
-        mPresenter?.detachView()
+        presenter?.detachView()
         super.onDestroy()
     }
 }

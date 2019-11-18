@@ -15,12 +15,10 @@ import javax.inject.Inject
  * @date 2018/2/5
  */
 
-abstract class BaseActivity<T : BasePresenter> : AppCompatActivity(), IBaseView,
+abstract class BaseActivity<T : BasePresenter<IBaseView>> : AppCompatActivity(), IBaseView,
     IView {
     /**主持人 */
-    @Nullable
-    @Inject
-    protected var mPresenter: T? = null
+    @Nullable @Inject lateinit var presenter: T
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,16 +40,16 @@ abstract class BaseActivity<T : BasePresenter> : AppCompatActivity(), IBaseView,
      * 绑定布局
      */
     private fun attachView() {
-        if (null != mPresenter) {
-            mPresenter!!.attachView(this)
+        if (null != presenter) {
+            presenter!!.attachView(this)
         }
     }
 
     override fun onDestroy() {
         super.onDestroy()
         // 与Presenter解除绑定
-        if (null != mPresenter) {
-            mPresenter!!.detachView()
+        if (null != presenter) {
+            presenter!!.detachView()
         }
     }
 }
