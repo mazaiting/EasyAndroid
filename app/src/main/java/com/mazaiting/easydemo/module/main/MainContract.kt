@@ -2,7 +2,6 @@ package com.mazaiting.easydemo.module.main
 
 import com.mazaiting.easy.base.mvp.IBasePresenter
 import com.mazaiting.easy.base.mvp.IBaseView
-import com.mazaiting.easy.base.presenter.BaseSpPresenter
 
 /***
  *
@@ -39,7 +38,7 @@ class MainContract {
         fun loadSuccess()
     }
 
-    interface Presenter : IBasePresenter<View> {
+    interface Presenter: IBasePresenter<View> {
         /**
          * 加载数据
          */

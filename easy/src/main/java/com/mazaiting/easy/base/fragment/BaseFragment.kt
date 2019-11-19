@@ -18,10 +18,9 @@ import javax.inject.Inject
  * @author mazaiting
  * @date 2018/2/5
  */
-
 abstract class BaseFragment<T : BasePresenter<IBaseView>> : Fragment(), IView, IBaseView {
     /**主持人 */
-    @Nullable @Inject lateinit var presenter: T
+    @Nullable @Inject @JvmField var presenter: T? = null
     /**判断是否加载过数据 */
     protected var hasFetchData = false
 

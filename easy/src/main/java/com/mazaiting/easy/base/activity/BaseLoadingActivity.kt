@@ -14,7 +14,7 @@ import com.mazaiting.easy.config.Constant
  * @author mazaiting
  */
 
-abstract class BaseLoadingActivity<T : BasePresenter<IBaseView>> : BaseActivity<T>(), ILoading {
+abstract class BaseLoadingActivity<in V: IBaseView, P: BasePresenter<V>> : BaseActivity<V, P>(), ILoading {
 
     /**加载进度条 */
     private var mLoadingDialogFragment: LoadingDialogFragment? = null

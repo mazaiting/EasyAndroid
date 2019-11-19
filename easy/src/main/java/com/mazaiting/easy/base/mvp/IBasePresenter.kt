@@ -1,19 +1,17 @@
 package com.mazaiting.easy.base.mvp
 
-import java.io.Serializable
-
 /**
  * MVP 中的 Presenter接口
  * @author mazaiting
  * @date 2018/2/5
  */
 
-interface IBasePresenter<T>: Serializable {
+interface IBasePresenter<in V: IBaseView>{
     /**
      * 绑定View
      * @param view rootView
      */
-    fun attachView(view: T)
+    fun attachView(view: V)
 
     /**
      * 与View解除绑定

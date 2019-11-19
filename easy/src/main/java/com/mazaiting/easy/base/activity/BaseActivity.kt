@@ -1,11 +1,12 @@
 package com.mazaiting.easy.base.activity
 
 import android.os.Bundle
+import android.view.View
 import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
 import com.mazaiting.easy.app.BaseApplication
-import com.mazaiting.easy.base.mvp.IView
 import com.mazaiting.easy.base.mvp.IBaseView
+import com.mazaiting.easy.base.mvp.IView
 import com.mazaiting.easy.base.presenter.BasePresenter
 import javax.inject.Inject
 
@@ -14,11 +15,11 @@ import javax.inject.Inject
  * @author mazaiting
  * @date 2018/2/5
  */
-
-abstract class BaseActivity<T : BasePresenter<IBaseView>> : AppCompatActivity(), IBaseView,
-    IView {
+abstract class BaseActivity<in V: IBaseView, P: BasePresenter<V>> : AppCompatActivity(), IBaseView, IView {
+    /** 根布局 */
+    override var rootView: View? = null
     /**主持人 */
-    @Nullable @Inject lateinit var presenter: T
+    @Nullable @Inject @JvmField var presenter: P? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,17 +40,14 @@ abstract class BaseActivity<T : BasePresenter<IBaseView>> : AppCompatActivity(),
     /**
      * 绑定布局
      */
+    @Suppress("UNCHECKED_CAST")
     private fun attachView() {
-        if (null != presenter) {
-            presenter!!.attachView(this)
-        }
+        presenter?.attachView(this as V)
     }
 
     override fun onDestroy() {
-        super.onDestroy()
         // 与Presenter解除绑定
-        if (null != presenter) {
-            presenter!!.detachView()
-        }
+        presenter?.detachView()
+        super.onDestroy()
     }
 }

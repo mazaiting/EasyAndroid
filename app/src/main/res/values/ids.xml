@@ -2,4 +2,5 @@
 <resources>
     <item name="include_toolbar" type="id" />
     <item name="include_refresh" type="id" />
+    <item name="tv_title" type="id" />
 </resources>

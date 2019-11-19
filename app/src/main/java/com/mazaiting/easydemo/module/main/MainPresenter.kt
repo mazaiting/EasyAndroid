@@ -2,6 +2,7 @@ package com.mazaiting.easydemo.module.main
 
 import com.mazaiting.easy.base.mvp.IBasePresenter
 import com.mazaiting.easy.base.mvp.IBaseView
+import com.mazaiting.easy.base.presenter.BasePresenter
 import com.mazaiting.easy.base.presenter.BaseSpPresenter
 import java.io.Serializable
 
@@ -32,7 +33,7 @@ import java.io.Serializable
  * @date 2019-11-18
  * @description 主页面主持人
  */
-class MainPresenter : BaseSpPresenter<MainContract.View>(), MainContract.Presenter {
+ class MainPresenter: BasePresenter<MainContract.View>(), MainContract.Presenter {
 
     override fun loadData() {
 

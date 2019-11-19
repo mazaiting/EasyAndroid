@@ -1,14 +1,12 @@
 package com.mazaiting.easy.base.mvp
 
-import java.io.Serializable
-
 /**
  * MVP 中的 View 接口
  * @author mazaiting
  * @date 2018/2/5
  */
 
-interface IBaseView: Serializable {
+interface IBaseView {
 
     /**
      * 请求成功

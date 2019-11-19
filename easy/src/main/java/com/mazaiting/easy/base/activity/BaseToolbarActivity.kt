@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.toolbar.*
  * @date 2018/3/23
  */
 
-abstract class BaseToolbarActivity<T : BasePresenter<IBaseView>> : BaseLoadingActivity<T>() {
+abstract class BaseToolbarActivity<in V: IBaseView, P: BasePresenter<V>> : BaseLoadingActivity<V, P>() {
 
     /**
      * 如果重写此方法，在方法体内先调用父类的bindView方法

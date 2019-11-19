@@ -10,6 +10,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.mazaiting.easy.base.mvp.IBaseView
 import com.mazaiting.easy.base.presenter.BasePresenter
+import com.mazaiting.easy.config.BaseConfig
 import kotlinx.android.synthetic.main.refresh.*
 
 /**
@@ -18,16 +19,14 @@ import kotlinx.android.synthetic.main.refresh.*
  * @date 2018/3/23
  */
 
-abstract class BaseRefreshToolbarActivity<T : BasePresenter<IBaseView>> : BaseToolbarActivity<T>() {
+abstract class BaseRefreshToolbarActivity<in V: IBaseView, P: BasePresenter<V>> : BaseToolbarActivity<V, P>() {
     /**适配器 */
-    protected lateinit var mAdapter: BaseQuickAdapter<Any, BaseViewHolder>
-
+    open val adapter: BaseQuickAdapter<*, BaseViewHolder>? = null
     /**
      * 获取布局管理者
      * @return 布局管理者
      */
-    protected val layoutManager: RecyclerView.LayoutManager
-        get() = LinearLayoutManager(this)
+    open val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
 
     override fun bindView(view: View, savedInstanceState: Bundle?) {
         super.bindView(view, savedInstanceState)
@@ -35,17 +34,17 @@ abstract class BaseRefreshToolbarActivity<T : BasePresenter<IBaseView>> : BaseTo
         swipeLayout.setColorSchemeColors(Color.rgb(47, 223, 189))
         // 设置布局方向
         recyclerView.layoutManager = layoutManager
-        // 创建适配器
-        mAdapter = setAdapter()
+//        // 创建适配器
+//        adapter = setAdapter()
         // 打开加载动画
-        mAdapter.openLoadAnimation(BaseQuickAdapter.ALPHAIN)
+        adapter?.openLoadAnimation(BaseQuickAdapter.ALPHAIN)
         // 设置适配器
-        recyclerView.adapter = mAdapter
+        recyclerView.adapter = adapter
     }
 
     /**
      * 设置列表适配器
      * @return 返回适配器
      */
-    protected abstract fun setAdapter(): BaseQuickAdapter<Any, BaseViewHolder>
+//    protected abstract fun setAdapter(): BaseQuickAdapter<Any, BaseViewHolder>
 }

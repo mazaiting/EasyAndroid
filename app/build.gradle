@@ -6,6 +6,7 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
 
 // 加载签名配置文件
 Properties props = new Properties()
@@ -75,5 +76,7 @@ dependencies {
     implementation project(':easy')
     // UI 库
     implementation project(':widget')
+    // dagger 注解
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
 }
 apply from: "./../kotlin.gradle"
