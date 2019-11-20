@@ -30,11 +30,13 @@
 | [Glide](https://github.com/bumptech/glide)      | 4.9.0 | 图片加载与缓存库 |
 | [Agentweb](https://github.com/Justson/AgentWeb)      | 4.0.2 | WebView 框架 |
 | [AVLoadingIndicatorView](https://github.com/81813780/AVLoadingIndicatorView)      | 2.1.3 | 加载动画 |
+| [Room](https://github.com/81813780/AVLoadingIndicatorView)      | 2.1.3 | 加载动画 |
 
 #### Project Progress
 
 - 11 月 17 日: 项目初始化, 添加 widget 与 easy 模块
 - 11 月 18 日: 完成 dagger 全局应用组件的注入，网络与 SharedPreferences 的注入
+- 11 月 19 日: 完成 Activity 的 MVP 使用
 
 #### Size of the picture 
 

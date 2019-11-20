@@ -12,9 +12,12 @@ import com.mazaiting.easy.config.Constant
 /**
  * 加载页面基类
  * @author mazaiting
+ * @description
+ * V: IBaseView 子类
+ * P: BasePresenter 子类
  */
 
-abstract class BaseLoadingActivity<in V: IBaseView, P: BasePresenter<V>> : BaseActivity<V, P>(), ILoading {
+abstract class BaseLoadingActivity<V: IBaseView, P: BasePresenter<V>> : BaseActivity<V, P>(), ILoading {
 
     /**加载进度条 */
     private var mLoadingDialogFragment: LoadingDialogFragment? = null

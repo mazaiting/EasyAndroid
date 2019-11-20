@@ -27,7 +27,7 @@ abstract class BaseRefreshFragment<T : BasePresenter<IBaseView>> : BaseLoadingFr
     override fun bindView(view: View, savedInstanceState: Bundle?) {
         super.bindView(view, savedInstanceState)
         // 设置下拉刷新的颜色
-        swipeLayout.setColorSchemeColors(Color.rgb(47, 223, 189))
+        swipeRefreshLayout.setColorSchemeColors(Color.rgb(47, 223, 189))
         // 设置布局方向
         recyclerView.layoutManager = layoutManager
         // 创建适配器

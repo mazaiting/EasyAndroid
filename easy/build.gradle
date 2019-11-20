@@ -79,7 +79,7 @@ dependencies {
     // UI 库
     implementation project(path: ':widget')
     // material 库
-    implementation "com.google.android.material:material:$material_version"
+    api "com.google.android.material:material:$material_version"
     // RecyclerView
     api "androidx.recyclerview:recyclerview:1.0.0"
     // RecyclerView 适配器工具

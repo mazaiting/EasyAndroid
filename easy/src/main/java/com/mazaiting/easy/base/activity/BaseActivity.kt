@@ -14,8 +14,11 @@ import javax.inject.Inject
  * Activity基类
  * @author mazaiting
  * @date 2018/2/5
+ * @description
+ * V: IBaseView 子类
+ * P: BasePresenter 子类
  */
-abstract class BaseActivity<in V: IBaseView, P: BasePresenter<V>> : AppCompatActivity(), IBaseView, IView {
+abstract class BaseActivity<V: IBaseView, P: BasePresenter<V>> : AppCompatActivity(), IBaseView, IView {
     /** 根布局 */
     override var rootView: View? = null
     /**主持人 */

@@ -8,14 +8,16 @@ import com.mazaiting.easy.base.mvp.IBaseView
  * 主持人基类
  * @author mazaiting
  * @date 2018/2/5
+ * @description
+ * V: IBaseView 子类
  */
 
-open class BasePresenter<in V: IBaseView> : IBasePresenter<V> {
+open class BasePresenter<V: IBaseView> : IBasePresenter<V> {
 
     /**
      * 基类视图
      */
-    private var view: V? = null
+    open var view: V? = null
 
     /**
      * 与视图绑定

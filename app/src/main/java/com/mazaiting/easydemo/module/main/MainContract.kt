@@ -34,8 +34,9 @@ class MainContract {
     interface View : IBaseView {
         /**
          * 加载成功
+         * @param list 字符串里边
          */
-        fun loadSuccess()
+        fun loadSuccess(list: MutableList<String>)
     }
 
     interface Presenter: IBasePresenter<View> {

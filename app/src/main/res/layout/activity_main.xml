@@ -7,18 +7,19 @@
     tools:context=".module.main.MainActivity">
 
     <include
-        android:id="@id/include_toolbar"
-        android:layout="@layout/toolbar"
+        android:id="@+id/include_toolbar"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/include_refresh"
+        layout="@layout/toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
         />
 
     <include
-        android:id="@id/include_refresh"
-        android:layout="@layout/refresh"
+        layout="@layout/refresh"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/include_toolbar"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

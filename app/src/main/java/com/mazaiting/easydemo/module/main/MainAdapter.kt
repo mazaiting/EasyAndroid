@@ -9,6 +9,7 @@ import com.mazaiting.easydemo.R
  */
 class MainAdapter : BaseQuickAdapter<String, BaseViewHolder>(R.layout.item_main) {
     override fun convert(helper: BaseViewHolder, text: String) {
+        // 设置标题
         helper.setText(R.id.tv_title, text)
     }
 }

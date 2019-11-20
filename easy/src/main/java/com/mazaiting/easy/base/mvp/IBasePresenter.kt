@@ -4,6 +4,8 @@ package com.mazaiting.easy.base.mvp
  * MVP 中的 Presenter接口
  * @author mazaiting
  * @date 2018/2/5
+ * @description
+ * V: IBaseView 子类
  */
 
 interface IBasePresenter<in V: IBaseView>{

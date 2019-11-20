@@ -1,8 +1,6 @@
 package com.mazaiting.easydemo.base
 
 import com.mazaiting.easy.app.BaseApplication
-import com.mazaiting.easy.base.component.DaggerApplicationComponentImpl
-import com.mazaiting.easy.base.module.ApplicationModule
 import com.mazaiting.easy.config.BaseConfig
 import com.mazaiting.log.L
 
@@ -42,6 +40,7 @@ class EasyApplication : BaseApplication() {
         super.initOtherConfig()
         L.d("初始化其他配置")
     }
+
 }
 
 
