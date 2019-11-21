@@ -74,9 +74,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     // Easy 框架库
     implementation project(':easy')
-    // UI 库
-    implementation project(':widget')
     // dagger 注解
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    // room 编译工具
+    kapt "androidx.room:room-compiler:$room_version"
 }
 apply from: "./../kotlin.gradle"

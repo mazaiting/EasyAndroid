@@ -1,11 +1,9 @@
 package com.mazaiting.easy.base.mvp
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 
-import com.mazaiting.easy.app.IApplicationComponent
+import com.mazaiting.easy.base.component.IApplicationComponent
 
 /**
  * View 接口， 用于Activity和Fragment中

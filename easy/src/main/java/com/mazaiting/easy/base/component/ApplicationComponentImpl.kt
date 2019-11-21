@@ -1,8 +1,6 @@
 package com.mazaiting.easy.base.component
 
-import com.mazaiting.easy.app.IApplicationComponent
 import com.mazaiting.easy.base.module.ApplicationModule
-import com.mazaiting.easy.base.module.NetModule
 import dagger.Component
 
 /***
@@ -32,5 +30,5 @@ import dagger.Component
  * @date 2019-11-18
  * @description 全局应用组件实现类
  */
-@Component(modules = [ApplicationModule::class, NetModule::class])
+@Component(modules = [ApplicationModule::class])
 interface ApplicationComponentImpl : IApplicationComponent

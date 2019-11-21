@@ -1,10 +1,9 @@
 package com.mazaiting.easy.app
 
 import android.app.Application
-import com.mazaiting.easy.base.component.ApplicationComponentImpl
 import com.mazaiting.easy.base.component.DaggerApplicationComponentImpl
+import com.mazaiting.easy.base.component.IApplicationComponent
 import com.mazaiting.easy.base.module.ApplicationModule
-import com.mazaiting.easy.base.module.NetModule
 
 import com.mazaiting.easy.config.BaseConfig
 
@@ -26,27 +25,50 @@ abstract class BaseApplication : Application() {
     }
 
     /** 配置文件对象 */
-    open val config: BaseConfig?
-        get() = null
+    lateinit var baseConfig: BaseConfig
+
     /**
      * 获取Application组件
      * @return IApplicationComponent
      */
-    open val applicationComponent: IApplicationComponent
-        get() = DaggerApplicationComponentImpl
-            .builder()
-            .applicationModule(ApplicationModule(this))
-            .netModule(NetModule())
-            .build()
+    lateinit var applicationComponent: IApplicationComponent
 
     override fun onCreate() {
         super.onCreate()
         // 初始化App
         instance = this
+        // 初始化组件
+        initApplicationComponent()
         // 初始化配置文件
-        config?.init(this)
+        initConfig()
         // 初始化其他配置
         initOtherConfig()
+    }
+
+    /**
+     * 初始化配置
+     */
+    private fun initConfig() {
+        // 获取配置
+        baseConfig = getConfig()
+        // 初始化
+        baseConfig.init(this)
+    }
+
+    /**
+     * 获取配置工具
+     * @return BaseConfig 子类
+     */
+    protected open fun getConfig(): BaseConfig = BaseConfig()
+
+    /**
+     * 初始化组件
+     */
+    private fun initApplicationComponent() {
+        applicationComponent = DaggerApplicationComponentImpl
+            .builder()
+            .applicationModule(ApplicationModule(this))
+            .build()
     }
 
     /**

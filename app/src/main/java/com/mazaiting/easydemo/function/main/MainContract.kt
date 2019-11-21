@@ -1,7 +1,7 @@
-package com.mazaiting.easydemo.module.main
+package com.mazaiting.easydemo.function.main
 
-import com.mazaiting.easy.base.presenter.BasePresenter
-import javax.inject.Inject
+import com.mazaiting.easy.base.mvp.IBasePresenter
+import com.mazaiting.easy.base.mvp.IBaseView
 
 /***
  *
@@ -28,18 +28,28 @@ import javax.inject.Inject
  *                              代码无BUG!
  * @author mazaiting
  * @date 2019-11-18
- * @description 主页面主持人
+ * @description 主页面联系人
  */
- class MainPresenter @Inject constructor(): BasePresenter<MainContract.View>(), MainContract.Presenter {
-
-    override fun loadData() {
-        // 创建可变列表
-        val list = mutableListOf<String>()
-        // 添加数据
-        for (i in 0..10) {
-            list.add("Test$i")
-        }
-        view?.loadSuccess(list)
+class MainContract {
+    interface View : IBaseView {
+        /**
+         * 加载成功
+         * @param list 字符串里边
+         */
+        fun loadSuccess(list: MutableList<String>)
     }
 
+    interface Presenter: IBasePresenter<View> {
+        /**
+         * 加载数据
+         */
+        fun loadData()
+    }
 }
+
+
+
+
+
+
+

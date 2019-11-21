@@ -1,14 +1,7 @@
-package com.mazaiting.easy.base.module
+package com.mazaiting.easydemo.function.main
 
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
-import com.mazaiting.easy.app.BaseApplication
-import com.mazaiting.easy.utils.rx.RxUtil
-import dagger.Module
-import dagger.Provides
-import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
+import com.mazaiting.easy.base.presenter.BasePresenter
+import javax.inject.Inject
 
 /***
  *
@@ -35,42 +28,19 @@ import retrofit2.converter.gson.GsonConverterFactory
  *                              代码无BUG!
  * @author mazaiting
  * @date 2019-11-18
- * @description 网络模块
+ * @description 主页面主持人
  */
-@Module
-class NetModule {
-    /**
-     * 获取Retrofit.Builder对象
-     * @param application 全局Application对象
-     * @return Retrofit
-     */
-    @Provides
-    internal fun providedRetrofit(application: BaseApplication): Retrofit =
-        Retrofit.Builder()
-            // 网络基地址
-            .baseUrl(application.baseConfig.baseUrl)
-            // 添加Gson解析
-            .addConverterFactory(GsonConverterFactory.create())
-            // 添加RxJava适配器
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            // 设置OkHttpClient
-            .client(RxUtil.getOkHttpClientWithCache(application))
-            // 构建
-            .build()
+ class MainPresenter @Inject constructor(): BasePresenter<MainContract.View>(),
+    MainContract.Presenter {
 
-    /**
-     * 提供 JSON 解析工具
-     * @return Gson
-     */
-    @Provides
-    internal fun providedGson(): Gson =
-        GsonBuilder().disableHtmlEscaping().create()
+    override fun loadData() {
+        // 创建可变列表
+        val list = mutableListOf<String>()
+        // 添加数据
+        for (i in 0..10) {
+            list.add("Test$i")
+        }
+        view?.loadSuccess(list)
+    }
+
 }
-
-
-
-
-
-
-
-

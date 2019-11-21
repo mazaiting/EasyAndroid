@@ -33,8 +33,7 @@ import com.mazaiting.log.L
  */
 class EasyApplication : BaseApplication() {
 
-    override val config: BaseConfig?
-        get() = Config()
+    override fun getConfig(): BaseConfig = Config()
 
     override fun initOtherConfig() {
         super.initOtherConfig()

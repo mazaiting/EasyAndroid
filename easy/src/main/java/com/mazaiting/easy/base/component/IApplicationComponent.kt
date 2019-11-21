@@ -1,8 +1,8 @@
-package com.mazaiting.easy.app
+package com.mazaiting.easy.base.component
 
 import android.content.Context
+import com.mazaiting.easy.app.BaseApplication
 import com.mazaiting.sp.SpUtil
-import retrofit2.Retrofit
 
 /**
  * 全局组件接口, 如要使用Dagger2框架，则需要实现此接口
@@ -29,10 +29,4 @@ interface IApplicationComponent {
      * @return 上下文
      */
     val context: Context
-
-    /**
-     * Retrofit
-     * @return 网络请求工具
-     */
-    val retrofit: Retrofit
 }

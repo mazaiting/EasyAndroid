@@ -29,7 +29,7 @@ import com.mazaiting.report.LocalReportHandler
  * style="@style/Widget.AppCompat.Button.Small"
  */
 
-abstract class BaseConfig {
+open class BaseConfig {
 
     /**
      * 是否处于调试阶段
@@ -50,7 +50,7 @@ abstract class BaseConfig {
      * @return 网络基地址, 必须以'/'结尾
      */
     val baseUrl: String
-        get() = "/"
+        get() = "http://127.0.0.1:8080/"
 
     /**
      * 初始化调试参数

@@ -1,7 +1,7 @@
-package com.mazaiting.easydemo.module.main
+package com.mazaiting.easy.base.component
 
-import com.mazaiting.easy.base.mvp.IBasePresenter
-import com.mazaiting.easy.base.mvp.IBaseView
+import com.google.gson.Gson
+import retrofit2.Retrofit
 
 /***
  *
@@ -27,29 +27,19 @@ import com.mazaiting.easy.base.mvp.IBaseView
  *                               神兽保佑
  *                              代码无BUG!
  * @author mazaiting
- * @date 2019-11-18
- * @description 主页面联系人
+ * @date 2019-11-21
+ * @description 网络组件
  */
-class MainContract {
-    interface View : IBaseView {
-        /**
-         * 加载成功
-         * @param list 字符串里边
-         */
-        fun loadSuccess(list: MutableList<String>)
-    }
+interface INetComponent {
 
-    interface Presenter: IBasePresenter<View> {
-        /**
-         * 加载数据
-         */
-        fun loadData()
-    }
+    /**
+     * Retrofit
+     * @return 网络请求工具
+     */
+    val retrofit: Retrofit
+
+    /**
+     * JSON 解析工具
+     */
+    val gson: Gson
 }
-
-
-
-
-
-
-

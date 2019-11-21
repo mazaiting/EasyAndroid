@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".module.main.MainActivity">
+        <activity android:name=".function.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
