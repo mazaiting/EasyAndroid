@@ -12,7 +12,7 @@ buildscript {
         // 目标 SDK
         targetSdkVersion = 29
         // ROOM 版本
-        room_version = "2.2.1"
+        room_version = "2.2.2"
         // kotlin 核心版本
         core_ktx = "1.1.0"
         // 约束布局版本
@@ -38,13 +38,15 @@ buildscript {
             url "https://maven.aliyun.com/repository/public"
         }
         jcenter()
-        
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+
+        // JCenter 依赖
+        classpath 'com.novoda:bintray-release:0.9.1'
     }
 }
 
@@ -57,12 +59,21 @@ allprojects {
         maven {
             url "https://maven.aliyun.com/repository/public"
         }
+        maven {
+            url 'https://dl.bintray.com/mazaiting/Akdt'
+        }
         //cookie持久化jar包 添加以下语句
         maven {
             url "https://jitpack.io"
         }
         jcenter()
-        
+    }
+    //加上这些
+    tasks.withType(Javadoc) {
+        options{ encoding "UTF-8"
+            charSet 'UTF-8'
+            links "http://docs.oracle.com/javase/7/docs/api"
+        }
     }
 }
 

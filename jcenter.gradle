@@ -1,24 +1,23 @@
-buildscript {
-    dependencies {
-        // JCenter 依赖
-        classpath 'com.novoda:bintray-release:0.9'
-    }
-}
-
-allprojects {
-    //加上这些
-    tasks.withType(Javadoc) {
-        options{ encoding "UTF-8"
-            charSet 'UTF-8'
-            links "http://docs.oracle.com/javase/7/docs/api"
-        }
-    }
-}
-
 apply plugin: 'com.novoda.bintray-release'
+
+repositories {
+    mavenCentral()
+}
 
 android {
     lintOptions {
         abortOnError false
     }
 }
+
+publish {
+    repoName="Akdt"//仓库名(repoName 如果没有填写，上传的库默认仓库是maven)
+    userOrg = 'mazaiting'      //bintray注册的用户名
+    groupId = 'com.mazaiting.akdt'     //compile引用时的第1部分groupId
+    artifactId = 'akdt-common'     //compile引用时的第2部分项目名
+    publishVersion = '0.0.1'    //compile引用时的第3部分版本号
+    desc = 'This is an Android Kotlin Quick Development Tool library.'//项目描述
+    website = 'https://gitee.com/mazaiting/EasyAndroid' //github 托管地址
+}
+
+// ./gradlew clean build bintrayUpload -PbintrayUser=BINTRAY_USERNAME -PbintrayKey=BINTRAY_KEY -PdryRun=false

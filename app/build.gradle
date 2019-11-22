@@ -65,6 +65,10 @@ android {
                                     variant.versionName.replace(".", "_") + ".apk"
             }
     }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -75,7 +79,8 @@ dependencies {
     // Easy 框架库
     implementation project(':easy')
     // 公共库
-    implementation project(':common')
+//    implementation project(':common')
+    implementation "com.mazaiting.akdt:akdt-common:0.0.1"
     // dagger 注解
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
     // room 编译工具

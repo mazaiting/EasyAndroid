@@ -1,6 +1,9 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android-extensions'
+
 apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
 apply plugin: 'kotlin-kapt'
 
 android {
@@ -32,6 +35,9 @@ android {
         }
     }
 
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -81,7 +87,7 @@ dependencies {
     // material 库
     api "com.google.android.material:material:$material_version"
     // RecyclerView
-    api "androidx.recyclerview:recyclerview:1.0.0"
+    api "androidx.recyclerview:recyclerview:1.1.0"
     // RecyclerView 适配器工具
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34'
     // SharedPreferences 库
