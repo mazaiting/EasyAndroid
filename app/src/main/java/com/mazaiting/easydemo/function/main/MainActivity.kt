@@ -9,7 +9,7 @@ import com.mazaiting.easy.base.activity.BaseRefreshToolbarActivity
 import com.mazaiting.easy.base.component.ApplicationComponentImpl
 import com.mazaiting.easy.base.component.IApplicationComponent
 import com.mazaiting.easydemo.R
-import com.mazaiting.easydemo.component.DaggerCustomComponent
+import com.mazaiting.easydemo.base.component.DaggerCustomComponent
 
 class MainActivity(
     override val contentLayout: Int = R.layout.activity_main
@@ -36,7 +36,6 @@ class MainActivity(
         }
         // 设置点击事件
         adapter?.setOnItemChildClickListener { _, _, position ->
-            debug("下拉刷新")
 //            adapter?.getItem(position).run {
 //                Toast.makeText(this@MainActivity, this, Toast.LENGTH_SHORT).show()
 //            }

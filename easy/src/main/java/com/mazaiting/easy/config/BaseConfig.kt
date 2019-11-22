@@ -1,7 +1,7 @@
 package com.mazaiting.easy.config
 
 import android.app.Application
-import com.mazaiting.common.LOG_DEBUG
+import com.mazaiting.common.logDebug
 import com.mazaiting.report.LocalReportHandler
 
 /**
@@ -49,7 +49,7 @@ open class BaseConfig {
      * 获取基类 url
      * @return 网络基地址, 必须以'/'结尾
      */
-    val baseUrl: String
+    open val baseUrl: String
         get() = "http://127.0.0.1:8080/"
 
     /**
@@ -58,7 +58,7 @@ open class BaseConfig {
      */
     fun init(application: Application) {
         // 初始化日志打印
-        LOG_DEBUG = isUseLogger && isDebug
+        logDebug = isUseLogger && isDebug
         // 异常捕获
         LocalReportHandler(application)
     }

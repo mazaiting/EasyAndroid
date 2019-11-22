@@ -1,8 +1,8 @@
-package com.mazaiting.easydemo.base
+package com.mazaiting.easydemo.base.service
 
-import com.mazaiting.common.debug
-import com.mazaiting.easy.app.BaseApplication
-import com.mazaiting.easy.config.BaseConfig
+import com.mazaiting.easydemo.function.main.Data
+import kotlinx.coroutines.Deferred
+import retrofit2.http.GET
 
 /***
  *
@@ -28,25 +28,13 @@ import com.mazaiting.easy.config.BaseConfig
  *                               神兽保佑
  *                              代码无BUG!
  * @author mazaiting
- * @date 2019-11-18
- * @description 全局 Application
+ * @date 2019-11-22
+ * @description 测试API
  */
-class EasyApplication : BaseApplication() {
-
-    override fun getConfig(): BaseConfig = Config()
-
-    override fun initOtherConfig() {
-        super.initOtherConfig()
-        debug("初始化其他配置")
-    }
-
+interface TestApi {
+    /**
+     * Deferred 协程需要
+     */
+    @GET("wxarticle/chapters/json")
+    fun getDataAsync() : Deferred<Data>
 }
-
-
-
-
-
-
-
-
-

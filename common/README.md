@@ -11,7 +11,7 @@ Android 快速开发工具
 
 #### 项目进度
 
-- 11 月 22 日: akdt-common添加 Toast 和 Log 模块
+- 11 月 22 日: akdt-common添加 Toast 和 Log 模块, 协程请求添加
 
 #### 使用
 

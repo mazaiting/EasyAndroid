@@ -38,6 +38,8 @@ class Config : BaseConfig() {
     override val isUseLogger: Boolean
         get() = BuildConfig.DEBUG
 
+    override val baseUrl: String
+        get() = "https://wanandroid.com/"
 }
 
 

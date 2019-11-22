@@ -33,17 +33,11 @@ import android.util.Log
  */
 
 /**
- * 获取类名
- * @return 类名
- */
-inline fun Any.getSimpleName(): String = this.javaClass.simpleName
-
-/**
  * 标记是否打印日志
  * true: 打印
  * false: 不打印
  */
-var LOG_DEBUG: Boolean = false
+var logDebug: Boolean = false
 
 /**
  * VERBOSE 日志打印
@@ -113,6 +107,13 @@ fun Any.wtf(message: Any?, thr: Throwable? = null) {
     }
 }
 
+
+/**
+ * 获取类名
+ * @return 类名
+ */
+inline fun Any.getSimpleName(): String = this.javaClass.simpleName
+
 /**
  * 打印日志
  * @param any 当前类对象
@@ -131,7 +132,7 @@ private inline fun log(
     // 获取 Tag
     val tag = any.getSimpleName()
     // 是否打印
-    if (LOG_DEBUG) {
+    if (logDebug) {
         // 如果不为空
         if (null != thr) {
             // 使用异常打印

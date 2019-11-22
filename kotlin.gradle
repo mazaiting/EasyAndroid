@@ -9,6 +9,6 @@ dependencies {
     // 约束布局
     implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
     // Android Kotlin Quick Development Tool
-//    implementation project(':common')
-    implementation "com.mazaiting.akdt:akdt-common:0.0.1"
+    implementation project(':common')
+//    implementation "com.mazaiting.akdt:akdt-common:0.0.1"
 }

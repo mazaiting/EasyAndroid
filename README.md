@@ -40,7 +40,7 @@
 - 11 月 18 日: 完成 dagger 全局应用组件的注入，网络与 SharedPreferences 的注入
 - 11 月 19 日: 完成 Activity 的 MVP 使用
 - 11 月 20 日: 集成 common 模块
-- 11 月 22 日: 移除 [Log](https://github.com/mazaiting/Log) 日志工具, 改用 akdt-common 模块
+- 11 月 22 日: 移除 [Log](https://github.com/mazaiting/Log) 日志工具, 改用 akdt-common 模块, 添加 kotlin 协程
 
 #### Size of the picture 
 

@@ -1,8 +1,9 @@
-package com.mazaiting.easydemo.base
+package com.mazaiting.easydemo.base.module
 
-import com.mazaiting.common.debug
-import com.mazaiting.easy.app.BaseApplication
-import com.mazaiting.easy.config.BaseConfig
+import com.mazaiting.easydemo.base.service.TestApi
+import dagger.Module
+import dagger.Provides
+import retrofit2.Retrofit
 
 /***
  *
@@ -28,25 +29,16 @@ import com.mazaiting.easy.config.BaseConfig
  *                               神兽保佑
  *                              代码无BUG!
  * @author mazaiting
- * @date 2019-11-18
- * @description 全局 Application
+ * @date 2019-11-22
+ * @description
  */
-class EasyApplication : BaseApplication() {
+@Module
+class TestModule {
 
-    override fun getConfig(): BaseConfig = Config()
-
-    override fun initOtherConfig() {
-        super.initOtherConfig()
-        debug("初始化其他配置")
-    }
+    /**
+     * 获取测试 API
+     */
+    @Provides
+    fun getTestApi(retrofit: Retrofit): TestApi = retrofit.create(TestApi::class.java)
 
 }
-
-
-
-
-
-
-
-
-
