@@ -46,7 +46,7 @@ class DatePickerDialogFragment : DialogFragment(), DatePickerDialog.OnDateSetLis
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         // 返回日期控件
         return DatePickerDialog(
-            Objects.requireNonNull(this.activity), this,
+            this.activity!!, this,
             mYear, mMonth, mDayOfMonth
         )
     }

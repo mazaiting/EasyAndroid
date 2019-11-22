@@ -2,12 +2,13 @@ package com.mazaiting.easydemo.function.main
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
-import com.mazaiting.easy.base.component.IApplicationComponent
+import com.mazaiting.common.DEBUG
+import com.mazaiting.common.debug
 import com.mazaiting.easy.base.activity.BaseRefreshToolbarActivity
 import com.mazaiting.easy.base.component.ApplicationComponentImpl
+import com.mazaiting.easy.base.component.IApplicationComponent
 import com.mazaiting.easydemo.R
 import com.mazaiting.easydemo.component.DaggerCustomComponent
 
@@ -32,13 +33,14 @@ class MainActivity(
         // 下拉刷新
         getSwipeRefreshLayout().setOnRefreshListener {
             getSwipeRefreshLayout().isRefreshing = false
-            Toast.makeText(this@MainActivity, "下拉刷新", Toast.LENGTH_SHORT).show()
+            debug("下拉刷新")
         }
         // 设置点击事件
         adapter?.setOnItemChildClickListener { _, _, position ->
-            adapter?.getItem(position).run {
-                Toast.makeText(this@MainActivity, this, Toast.LENGTH_SHORT).show()
-            }
+            debug("下拉刷新")
+//            adapter?.getItem(position).run {
+//                Toast.makeText(this@MainActivity, this, Toast.LENGTH_SHORT).show()
+//            }
         }
     }
 

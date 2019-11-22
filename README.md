@@ -37,6 +37,7 @@
 - 11 月 17 日: 项目初始化, 添加 widget 与 easy 模块
 - 11 月 18 日: 完成 dagger 全局应用组件的注入，网络与 SharedPreferences 的注入
 - 11 月 19 日: 完成 Activity 的 MVP 使用
+- 11 月 20 日: 集成 common 模块
 
 #### Size of the picture 
 

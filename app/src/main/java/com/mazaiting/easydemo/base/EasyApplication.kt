@@ -1,5 +1,6 @@
 package com.mazaiting.easydemo.base
 
+import com.mazaiting.common.DEBUG
 import com.mazaiting.easy.app.BaseApplication
 import com.mazaiting.easy.config.BaseConfig
 import com.mazaiting.log.L
@@ -38,6 +39,7 @@ class EasyApplication : BaseApplication() {
     override fun initOtherConfig() {
         super.initOtherConfig()
         L.d("初始化其他配置")
+        DEBUG = true
     }
 
 }
