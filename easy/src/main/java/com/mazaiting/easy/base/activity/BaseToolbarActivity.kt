@@ -7,7 +7,6 @@ import androidx.appcompat.widget.Toolbar
 import com.mazaiting.easy.base.mvp.IBaseView
 
 import com.mazaiting.easy.base.presenter.BasePresenter
-import com.mazaiting.log.L
 import kotlinx.android.synthetic.main.toolbar.*
 
 

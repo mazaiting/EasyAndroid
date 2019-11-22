@@ -9,9 +9,29 @@ Android 快速开发工具
 1. Android Studio 3.5.2
 2. Kotlin 1.3.60
 
-#### Project Progress
+#### 项目进度
 
 - 11 月 22 日: akdt-common添加 Toast 和 Log 模块
+
+#### 使用
+
+- Toast
+
+```
+toast("test")
+longToast("test")
+```
+
+- Log
+
+```
+// 开启日志
+LOG_DEBUG = true
+// 日志打印
+debug("test")
+error("test")
+```
+
 
 #### Contribution
 

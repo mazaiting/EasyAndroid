@@ -83,7 +83,7 @@ dependencies {
     // 异常崩溃捕获
     implementation 'com.mazaiting:crash:1.0.5'
     // UI 库
-    api project(path: ':widget')
+    implementation project(path: ':widget')
     // material 库
     api "com.google.android.material:material:$material_version"
     // RecyclerView

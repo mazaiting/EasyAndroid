@@ -1,7 +1,7 @@
 package com.mazaiting.easy.config
 
 import android.app.Application
-import com.mazaiting.log.L
+import com.mazaiting.common.LOG_DEBUG
 import com.mazaiting.report.LocalReportHandler
 
 /**
@@ -58,20 +58,9 @@ open class BaseConfig {
      */
     fun init(application: Application) {
         // 初始化日志打印
-        initLogger(application)
+        LOG_DEBUG = isUseLogger && isDebug
         // 异常捕获
         LocalReportHandler(application)
-    }
-
-    /**
-     * 初始化日志打印
-     * @param application 全局Application
-     */
-    private fun initLogger(application: Application) {
-        if (isUseLogger && isDebug) {
-            // 设置 Tag
-            L.setProp(isDebug, application.javaClass.simpleName)
-        }
     }
 
 }

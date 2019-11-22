@@ -31,6 +31,8 @@
 | [Agentweb](https://github.com/Justson/AgentWeb)      | 4.0.2 | WebView 框架 |
 | [AVLoadingIndicatorView](https://github.com/81813780/AVLoadingIndicatorView)      | 2.1.3 | 加载动画 |
 | [Room](https://github.com/81813780/AVLoadingIndicatorView)      | 2.1.3 | 加载动画 |
+| [akdt-common](https://gitee.com/mazaiting/EasyAndroid/tree/master/common)      | 0.0.1 | Android 快速开发工具库 |
+
 
 #### Project Progress
 
@@ -38,6 +40,7 @@
 - 11 月 18 日: 完成 dagger 全局应用组件的注入，网络与 SharedPreferences 的注入
 - 11 月 19 日: 完成 Activity 的 MVP 使用
 - 11 月 20 日: 集成 common 模块
+- 11 月 22 日: 移除 [Log](https://github.com/mazaiting/Log) 日志工具, 改用 akdt-common 模块
 
 #### Size of the picture 
 
