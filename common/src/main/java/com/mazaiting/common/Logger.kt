@@ -43,7 +43,7 @@ inline fun Any.getSimpleName(): String = this.javaClass.simpleName
  * true: 打印
  * false: 不打印
  */
-var DEBUG: Boolean = false
+var LOG_DEBUG: Boolean = false
 
 /**
  * VERBOSE 日志打印
@@ -131,7 +131,7 @@ private inline fun log(
     // 获取 Tag
     val tag = any.getSimpleName()
     // 是否打印
-    if (DEBUG) {
+    if (LOG_DEBUG) {
         // 如果不为空
         if (null != thr) {
             // 使用异常打印

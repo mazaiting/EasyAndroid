@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
-import com.mazaiting.common.DEBUG
 import com.mazaiting.common.debug
 import com.mazaiting.easy.base.activity.BaseRefreshToolbarActivity
 import com.mazaiting.easy.base.component.ApplicationComponentImpl
