@@ -3,7 +3,13 @@ package com.mazaiting.easydemo.function.main
 import com.mazaiting.common.debug
 import com.mazaiting.common.response
 import com.mazaiting.easy.base.presenter.BasePresenter
+import com.mazaiting.easy.utils.rx.RxScheduler
+import com.mazaiting.easy.utils.rx.RxUtil
 import com.mazaiting.easydemo.base.service.TestApi
+import io.reactivex.Scheduler
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.functions.Consumer
+import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 /***
@@ -43,27 +49,21 @@ class MainPresenter @Inject constructor(val testApi: TestApi) : BasePresenter<Ma
         for (i in 0..10) {
             list.add("Test$i")
         }
-//        val handler = CoroutineExceptionHandler { _, exception ->
-//            verbose("Caught $exception")
-//        }
-//        // 协程
-//        GlobalScope.launch(handler) {
-//            withContext(Dispatchers.IO) {
-//                val data = testApi.getDatas().await()
-//                error(data)
-//            }
-//        }
 
-//        response {
-//            request { testApi.getDatas().await() }
-//        }
-//         成功
-            response({testApi.getDataAsync()}, {
-                debug(it)
-            }, {
-                debug(it)
-            })
+        // Coroutines 用法
+        response({ testApi.getDataAsync() }, {
+            debug(it)
+        }, {
+            debug(it)
+        })
 
+        // RxJava 用法
+//        testApi.getData()
+//            .compose(RxScheduler.applySchedulers())
+//            .subscribe({
+//                debug(it)
+//            }, {
+//                debug(it.message) })
 
         view?.loadSuccess(list)
     }

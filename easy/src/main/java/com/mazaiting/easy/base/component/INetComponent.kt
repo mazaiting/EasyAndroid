@@ -2,6 +2,8 @@ package com.mazaiting.easy.base.component
 
 import com.google.gson.Gson
 import retrofit2.Retrofit
+import javax.inject.Inject
+import javax.inject.Named
 
 /***
  *

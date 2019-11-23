@@ -1,6 +1,7 @@
 package com.mazaiting.easydemo.base.service
 
 import com.mazaiting.easydemo.function.main.Data
+import io.reactivex.Observable
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 
@@ -37,4 +38,11 @@ interface TestApi {
      */
     @GET("wxarticle/chapters/json")
     fun getDataAsync() : Deferred<Data>
+
+
+    /**
+     * Deferred 协程需要
+     */
+    @GET("wxarticle/chapters/json")
+    fun getData() : Observable<Data>
 }
