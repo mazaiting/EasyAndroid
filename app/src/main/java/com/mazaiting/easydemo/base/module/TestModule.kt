@@ -4,6 +4,7 @@ import com.mazaiting.easydemo.base.service.TestApi
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
+import javax.inject.Named
 
 /***
  *

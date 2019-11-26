@@ -29,9 +29,13 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "androidx.core:core-ktx:$core_ktx"
 
-    //协程
+    // 协程
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+    // Retrofit2 和 协程适配器
+    api 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
+    // 协程与ROOm适配器
+    api "androidx.room:room-coroutines:$room_coroutines_version"
 }
 
 apply from: "./../jcenter.gradle"

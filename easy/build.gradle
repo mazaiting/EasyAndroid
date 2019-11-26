@@ -83,6 +83,8 @@ dependencies {
     // 异常崩溃捕获
     implementation 'com.mazaiting:crash:1.0.5'
     // UI 库
+    implementation project(path: ':common')
+    // UI 库
     implementation project(path: ':widget')
     // material 库
     api "com.google.android.material:material:$material_version"
@@ -101,10 +103,8 @@ dependencies {
     // For Kotlin use kapt instead of annotationProcessor
     kapt "androidx.room:room-compiler:$room_version"
     // optional - Kotlin Extensions and Coroutines support for Room
-    api "androidx.room:room-ktx:$room_version"
+//    api "androidx.room:room-ktx:$room_version"
     // optional - RxJava support for Room
-    api "androidx.room:room-rxjava2:$room_version"
-    // Retrofit2 和 协程适配器
-    implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
+//    api "androidx.room:room-rxjava2:$room_version"
 }
 apply from: "./../kotlin.gradle"

@@ -47,15 +47,20 @@ class MainPresenter @Inject constructor(private val testApi: TestApi) : BasePres
             list.add(Item("Test$i", FragmentActivity::class.java))
         }
 
-        // 网络请求
+        // Coroutines 用法
         response({ testApi.getDataAsync() }, {
-            // 成功
             debug(it)
         }, {
-            // 失败
             debug(it)
         })
 
+        // RxJava 用法
+//        testApi.getData()
+//            .compose(RxScheduler.applySchedulers())
+//            .subscribe({
+//                debug(it)
+//            }, {
+//                debug(it.message) })
 
         view?.loadSuccess(list)
     }
