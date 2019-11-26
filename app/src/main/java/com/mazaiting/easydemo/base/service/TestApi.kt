@@ -1,6 +1,6 @@
 package com.mazaiting.easydemo.base.service
 
-import com.mazaiting.easydemo.function.main.Data
+import com.mazaiting.easydemo.bean.Data
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 

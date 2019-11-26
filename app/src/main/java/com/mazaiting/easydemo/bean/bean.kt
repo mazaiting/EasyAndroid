@@ -1,12 +1,7 @@
-package com.mazaiting.easydemo.function.main
+package com.mazaiting.easydemo.bean
 
-import com.mazaiting.common.debug
-import com.mazaiting.common.response
-import com.mazaiting.easy.base.presenter.BasePresenter
-import com.mazaiting.easydemo.base.service.TestApi
-import com.mazaiting.easydemo.bean.Item
-import com.mazaiting.easydemo.function.fragment.FragmentActivity
-import javax.inject.Inject
+import android.os.Parcel
+import android.os.Parcelable
 
 /***
  *
@@ -32,32 +27,27 @@ import javax.inject.Inject
  *                               神兽保佑
  *                              代码无BUG!
  * @author mazaiting
- * @date 2019-11-18
- * @description 主页面主持人
+ * @date 2019-11-26
+ * @description 实体
  */
-class MainPresenter @Inject constructor(private val testApi: TestApi) : BasePresenter<MainContract.View>(),
-    MainContract.Presenter {
+data class Data(
+    val data: List<Test>
+)
 
-    override fun loadData() {
-        // 创建可变列表
-        val list = mutableListOf<Item>()
-        list.add(Item("Fragment 测试", FragmentActivity::class.java))
-        // 添加数据
-        for (i in 1..10) {
-            list.add(Item("Test$i", FragmentActivity::class.java))
-        }
+data class Test(
+    val name: String
+)
 
-        // 网络请求
-        response({ testApi.getDataAsync() }, {
-            // 成功
-            debug(it)
-        }, {
-            // 失败
-            debug(it)
-        })
-
-
-        view?.loadSuccess(list)
-    }
-
-}
+/**
+ * 首页条目
+ */
+data class Item(
+    /**
+     * 显示名称
+     */
+    val name: String,
+    /**
+     * 开启的页面
+     */
+    val cls: Class<*>
+)

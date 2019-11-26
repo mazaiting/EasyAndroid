@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.mazaiting.easydemo">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <application
         android:name=".base.EasyApplication"
         android:allowBackup="true"
@@ -13,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".function.fragment.FragmentActivity"></activity>
         <activity android:name=".function.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

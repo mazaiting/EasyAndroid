@@ -2,6 +2,7 @@ package com.mazaiting.easydemo.function.main
 
 import com.mazaiting.easy.base.mvp.IBasePresenter
 import com.mazaiting.easy.base.mvp.IBaseView
+import com.mazaiting.easydemo.bean.Item
 
 /***
  *
@@ -34,9 +35,9 @@ class MainContract {
     interface View : IBaseView {
         /**
          * 加载成功
-         * @param list 字符串里边
+         * @param list 数据列表
          */
-        fun loadSuccess(list: MutableList<String>)
+        fun loadSuccess(list: MutableList<Item>)
     }
 
     interface Presenter: IBasePresenter<View> {

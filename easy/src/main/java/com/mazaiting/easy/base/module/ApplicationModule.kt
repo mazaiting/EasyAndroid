@@ -6,6 +6,7 @@ import com.mazaiting.easy.config.BaseConfig
 import com.mazaiting.sp.SpUtil
 import dagger.Module
 import dagger.Provides
+import javax.inject.Named
 
 /***
  *
@@ -44,28 +45,22 @@ class ApplicationModule constructor(private val application: BaseApplication) {
      * SharedPreferences 工具类
      * @return SharedPreferences
      */
-    @Provides
-    internal fun providedSharedPreferences(): SpUtil {
-        return SpUtil.instance
-    }
+//    @Provides @Named("SpUtil")
+//    internal fun providedSharedPreferences(): SpUtil = SpUtil.instance
 
     /**
      * 提供 Application
      * @return BaseApplication
      */
     @Provides
-    internal fun providedApplication(): BaseApplication {
-        return application
-    }
+    internal fun providedApplication(): BaseApplication = application
 
     /**
      * 提供上下文
      * @return 上下文
      */
     @Provides
-    internal fun providedContext(): Context {
-        return application.applicationContext
-    }
+    internal fun providedContext(): Context = application.applicationContext
 
 }
 

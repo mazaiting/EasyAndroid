@@ -41,6 +41,7 @@
 - 11 月 19 日: 完成 Activity 的 MVP 使用
 - 11 月 20 日: 集成 common 模块
 - 11 月 22 日: 移除 [Log](https://github.com/mazaiting/Log) 日志工具, 改用 akdt-common 模块, 添加 kotlin 协程
+- 11 月 26 日: akdt-common 库添加 Context 扩展函数, 完成四大组件的简单使用
 
 #### Size of the picture 
 

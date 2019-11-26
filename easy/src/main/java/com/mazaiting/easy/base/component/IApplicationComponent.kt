@@ -22,7 +22,7 @@ interface IApplicationComponent {
      * 获取SharedPreferences
      * @return SharedPreferences
      */
-    val sharedPreferences: SpUtil
+//    val sharedPreferences: SpUtil
 
     /**
      * 上下文

@@ -11,7 +11,8 @@ Android 快速开发工具
 
 #### 项目进度
 
-- 11 月 22 日: akdt-common添加 Toast 和 Log 模块, 协程请求添加
+- 11 月 22 日: v0.0.1 akdt-common 添加 Toast 和 Log 模块, 协程请求添加
+- 11 月 26 日: v0.0.2 akdt-common 添加 Intent 模块
 
 #### 使用
 
@@ -30,6 +31,17 @@ LOG_DEBUG = true
 // 日志打印
 debug("test")
 error("test")
+```
+
+- Intent
+
+```
+// 开始 Activity
+startActivity<FragmentActivity>("key" to "value")
+// 获取意图
+intentFor<FragmentActivity>()
+// 开启服务
+startService<FragmentService>("key" to "value")
 ```
 
 
