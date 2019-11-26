@@ -38,4 +38,4 @@ dependencies {
     api "androidx.room:room-coroutines:$room_coroutines_version"
 }
 
-apply from: "./../jcenter.gradle"
+apply from: "./../common.gradle"

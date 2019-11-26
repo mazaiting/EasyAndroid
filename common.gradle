@@ -15,7 +15,7 @@ publish {
     userOrg = 'mazaiting'      //bintray注册的用户名
     groupId = 'com.mazaiting.akdt'     //compile引用时的第1部分groupId
     artifactId = 'akdt-common'     //compile引用时的第2部分项目名
-    publishVersion = '0.0.1'    //compile引用时的第3部分版本号
+    publishVersion = '0.0.2'    //compile引用时的第3部分版本号
     desc = 'This is an Android Kotlin Quick Development Tool library.'//项目描述
     website = 'https://gitee.com/mazaiting/EasyAndroid' //github 托管地址
 }
